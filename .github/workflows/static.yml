@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Band Name Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.11.1/brython.min.js"></script>
+</head>
+<body onload="brython()">
+    <h1>Band Name Generator</h1>
+    <p>לחץ על הכפתור כדי להתחיל ליצור שם ללהקה שלך!</p>
+    
+    <button onclick="runPythonCode()">הפעל את הקוד</button>
+    <div id="output"></div>
+
+    <script type="text/python">
+        from browser import document, html, alert
+
+        def runPythonCode(event=None):
+            # הדפסת הודעה ראשונית
+            print("Welcome to the Band Name Generator.")
+
+            # בקשה לשם העיר ושם החיה
+            city = document.prompt("What's the name of the city you grew up in?")
+            pet = document.prompt("What's your pet's name?")
+
+            # יצירת שם ללהקה והצגתו
+            band_name = f"Your band name could be: {city} {pet}"
+            document["output"].text = band_name
+    </script>
+</body>
+</html>
